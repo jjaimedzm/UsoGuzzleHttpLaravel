@@ -7,11 +7,9 @@ Class Posts
 {
     protected $client;
 
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $this->client = new Client([
-            'base_uri' => 'https://jsonplaceholder.typicode.com',
-        ]);
+        $this->client = $client;
     }
 
     public function all()
