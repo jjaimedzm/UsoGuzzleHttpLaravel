@@ -3,7 +3,7 @@
 namespace App\Repositories;
 use GuzzleHttp\Client;
 
-Class Posts
+Class Posts extends GuzzleHttpRequest
 {
     protected $client;
 
@@ -20,12 +20,5 @@ Class Posts
     public function find($id)
     {
         return $this->get("posts/{$id}");
-    }
-
-    public function get($url)
-    {
-        $response = $this->client->request('GET', $url);
-
-        return json_decode($response->getBody()->getContents());
     }
 }
